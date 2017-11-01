@@ -20,7 +20,7 @@
         <td><%= link_to boat.name, boat_path(boat) %></td>
         <td><%= boat.location %></td>
         <td><%= boat.containers %></td>
-        <td><%= boat.image %></td>
+        <td> <%= image_tag boat.photo.url(:medium) %></td>
         <td><%= boat.user.email %></td>
         
       </tr>

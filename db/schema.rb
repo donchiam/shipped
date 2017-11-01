@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "location"
     t.integer "containers"
     t.string "job"
-    t.string "image"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,8 +42,10 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "origin"
     t.string "destination"
     t.integer "cost"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
