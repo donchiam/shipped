@@ -1,4 +1,6 @@
 class Assignment < ApplicationRecord
-	belongs_to :boat
-	belongs_to :job
+	belongs_to :boat_id
+	belongs_to :job_id
+
 end
+

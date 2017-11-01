@@ -36,4 +36,9 @@
 </p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> | 
+<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', jobs_path %>
+
+<%= link_to "Assign", assignment_path(boat_id: boat), :method => :post%>
+
+<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>

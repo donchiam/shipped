@@ -1,11 +1,11 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Assignment.all
+    @assignments = Conversation.participating(current_user).order('updated_at DESC')
   end
 
   # GET /assignments/1
@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/new
   def new
-    @assignment = Assignment.new
+    @conversation ||= Assignment.create(job_id: job.current_user.id, receiver_id: @receiver.id)
   end
 
   # GET /assignments/1/edit
@@ -26,7 +26,7 @@ class AssignmentsController < ApplicationController
 
   # POST /assignments
   def create
-    @assignment = Assignment.new(job_params)
+    @assignment = current_user.assignments.build(:Assignment.new(job_params)
       if @job.save
         redirect_to jobs_path
       else
@@ -76,10 +76,22 @@ class AssignmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_assignment
       @assignment = Assignment.find(params[:id])
+      @boat_used = Boat.find_by(id: params[:boat_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
       params.require(:assignment).permit(:job, :boat, :containers)
+    end
+
+    def find_assignment
+      if params[:receiver_id]
+        @receiver = User.find_by(id: params[:boat_id])
+        redirect_to(root_path) and return unless @receiver
+        @conversation = Conversation.between(current_user.id, @receiver.id)[0]
+      else
+        @conversation = Conversation.find_by(id: params[:conversation_id])
+        redirect_to(root_path) and return unless @conversation && @conversation.participates(current_user)
+      end
     end
 end

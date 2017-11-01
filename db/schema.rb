@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20171101014322) do
 
   create_table "assignments", force: :cascade do |t|
-    t.string "job"
-    t.string "boat"
-    t.integer "containers"
+    t.integer "job_id"
+    t.integer "boat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["job_id", "boat_id"], name: "index_assignments_on_job_id_and_boat_id", unique: true
   end
 
   create_table "boats", force: :cascade do |t|
@@ -39,8 +39,12 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "origin"
     t.string "destination"
     t.integer "cost"
+    t.integer "user_id"
+    t.integer "boat_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["boat_id_id"], name: "index_jobs_on_boat_id_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

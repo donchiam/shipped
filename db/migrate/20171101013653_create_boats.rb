@@ -7,6 +7,7 @@ class CreateBoats < ActiveRecord::Migration[5.1]
       t.string :job
       t.string :image
       t.references :user, foreign_key: true
+      t.integer :job_id
 
       t.timestamps
     end
