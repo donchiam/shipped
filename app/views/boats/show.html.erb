@@ -23,12 +23,14 @@
 <p>
   <strong>Image:</strong>
   <%= @boat.image %>
+  <%= image_tag @boat.photo.url(:medium) %>
 </p>
 
 <p>
   <strong>User:</strong>
   <%= @boat.user %>
 </p>
+
 
 <%= link_to 'Edit', edit_boat_path(@boat) %> |
 <%= link_to 'Back', boats_path %>
