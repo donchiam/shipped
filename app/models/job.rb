@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
-	has_many :boats
 	belongs_to :user
+	  has_many :assignments
+   has_many :boats, through: :assignments
 
 end

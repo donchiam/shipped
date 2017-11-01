@@ -6,7 +6,6 @@ class User < ApplicationRecord
 	
 	has_many :assignments
 	has_many :boats
-	has_many :containers
 	has_many :jobs	
 
 end

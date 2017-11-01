@@ -13,18 +13,19 @@
 ActiveRecord::Schema.define(version: 20171101014322) do
 
   create_table "assignments", force: :cascade do |t|
-    t.string "job"
-    t.string "boat"
-    t.integer "containers"
+    t.integer "job_id"
+    t.integer "boat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["boat_id"], name: "index_assignments_on_boat_id"
+    t.index ["job_id", "boat_id"], name: "index_assignments_on_job_id_and_boat_id", unique: true
+    t.index ["job_id"], name: "index_assignments_on_job_id"
   end
 
   create_table "boats", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.integer "containers"
-    t.string "job"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"
@@ -49,8 +50,7 @@ ActiveRecord::Schema.define(version: 20171101014322) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "boat"
-    t.string "job"
+    t.string "name"
     t.integer "containers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
