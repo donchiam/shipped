@@ -17,9 +17,13 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.integer "boat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.index ["boat_id"], name: "index_assignments_on_boat_id"
     t.index ["job_id", "boat_id"], name: "index_assignments_on_job_id_and_boat_id", unique: true
     t.index ["job_id"], name: "index_assignments_on_job_id"
+=======
+    t.index ["job_id", "boat_id"], name: "index_assignments_on_job_id_and_boat_id", unique: true
+>>>>>>> cbcab22df40358bb303a4aebf6f31743d1508b16
   end
 
   create_table "boats", force: :cascade do |t|
@@ -44,8 +48,15 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "destination"
     t.integer "cost"
     t.integer "user_id"
+<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+    t.integer "boat_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boat_id_id"], name: "index_jobs_on_boat_id_id"
+>>>>>>> cbcab22df40358bb303a4aebf6f31743d1508b16
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 

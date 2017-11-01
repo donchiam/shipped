@@ -5,8 +5,11 @@ class CreateAssignments < ActiveRecord::Migration[5.1]
        t.references :boat, foreign_key: true
 
 
+
       t.timestamps
     end
+
     add_index :assignments, [:job_id, :boat_id], unique: true
+
   end
 end
