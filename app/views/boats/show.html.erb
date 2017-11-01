@@ -16,19 +16,15 @@
 </p>
 
 <p>
-  <strong>Job:</strong>
-  <%= @boat.job %>
-</p>
-
-<p>
   <strong>Image:</strong>
   <%= @boat.image %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @boat.user %>
+  <%= @boat.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Edit', edit_boat_path(@boat) %> | 
+<%= link_to 'Delete', @boat, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', boats_path %>

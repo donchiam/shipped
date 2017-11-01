@@ -1,5 +1,6 @@
 class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /boats
   # GET /boats.json
@@ -27,8 +28,9 @@ class BoatsController < ApplicationController
   # POST /boats
   def create
     @boat = Boat.new(boat_params)
+    @boat.user = current_user
       if @boat.save
-        redirect_to boats_path
+        redirect_to boats_path, notice: 'Boat was successfully created.'
       else
         render :new
       end
@@ -53,7 +55,7 @@ class BoatsController < ApplicationController
   def update
     @boat = Boat.find(params[:id])
     if @boat.update_attributes()
-      redirect_to boats_path
+      redirect_to boats_path, notice: 'Boat was successfully updated.'
     else
       render :new
     end
@@ -75,7 +77,7 @@ class BoatsController < ApplicationController
   def destroy
     set_boat
     @boat.destroy
-    redirect_to boats_path
+    redirect_to boats_path, notice: 'Boat was successfully deleted.'
   end
 
   # DELETE /boats/1.json
