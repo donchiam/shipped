@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   	resources :jobs
   end
 
+post 'add_assignment/:job_id' => 'assignments#add_assignment', as: :add_assignment
 
   root "jobs#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
