@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "name"
     t.string "location"
     t.integer "containers"
+    t.string "job"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"

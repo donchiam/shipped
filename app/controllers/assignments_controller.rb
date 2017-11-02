@@ -26,7 +26,6 @@ class AssignmentsController < ApplicationController
 
   # POST /assignments
   def create
-
   @assignment = Assignment.new(assignment_params)
     @assignment.user = current_user
       if @assignment.save
@@ -85,5 +84,9 @@ class AssignmentsController < ApplicationController
     def assignment_params
       params.require(:assignment).permit(:job_id, :boat_id, :containers)
 
+<<<<<<< HEAD
 
+=======
+    end
+>>>>>>> ff82feb648e022f62bfa80b9f2ec82ec71f740ff
 end

@@ -11,7 +11,6 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.references :assignment
 
-
       t.timestamps
     end
   end
