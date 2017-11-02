@@ -83,10 +83,6 @@ class AssignmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
       params.require(:assignment).permit(:job_id, :boat_id, :containers)
-
-<<<<<<< HEAD
-
-=======
     end
->>>>>>> ff82feb648e022f62bfa80b9f2ec82ec71f740ff
+    end
 end
