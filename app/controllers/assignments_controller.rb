@@ -26,10 +26,9 @@ class AssignmentsController < ApplicationController
 
   # POST /assignments
   def create
-  @assignment = Assignment.new(assignment_params)
-    @assignment.user = current_user
+    @assignment = Assignment.new(assignment_params)
       if @assignment.save
-        redirect_to assignments_path, notice: 'Assignment was successfully created.'
+        redirect_to jobs_path
       else
         render :new
       end
@@ -82,17 +81,7 @@ class AssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:job, :boat, :containers)
-    end
+      params.require(:assignment).permit(:job_id, :boat_id, :containers)
 
-#    def find_assignment
-#      if params[:receiver_id]
-#        @receiver = User.find_by(id: params[:boat_id])
-#        redirect_to(root_path) and return unless @receiver
-#        @conversation = Conversation.between(current_user.id, @receiver.id)[0]
-#      else
-#        @conversation = Conversation.find_by(id: params[:conversation_id])
-#        redirect_to(root_path) and return unless @conversation && @conversation.participates(current_user)
-#      end
-#    end
+    end
 end
