@@ -26,9 +26,11 @@ class AssignmentsController < ApplicationController
 
   # POST /assignments
   def create
-    @assignment = Assignment.new(assignment_params)
+
+  @assignment = Assignment.new(assignment_params)
+    @assignment.user = current_user
       if @assignment.save
-        redirect_to jobs_path
+        redirect_to assignments_path, notice: 'Assignment was successfully created.'
       else
         render :new
       end
@@ -83,5 +85,5 @@ class AssignmentsController < ApplicationController
     def assignment_params
       params.require(:assignment).permit(:job_id, :boat_id, :containers)
 
-    end
+
 end

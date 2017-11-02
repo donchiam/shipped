@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create([
+{ email: "dave@dave.com", password: "password"},
+{ email: "adam@adam.com", password: "password"},
+{ email: "joe@joe.com", password: "password"}
+])
+
 
 Job.create([
 
@@ -14,7 +20,8 @@ Job.create([
   origin: "Florida",
   destination: "Spain",
   cost: 5000,
-  user_id: 1
+  user_id: 1,
+  assignment_id: 1
 },
 
 { name: "engineer",
@@ -23,7 +30,8 @@ Job.create([
   origin: "New York",
   destination: "Ireland",
   cost: 4000,
-  user_id: 2
+  user_id: 2,
+  assignment_id: 2
 	}
 
 ])
@@ -33,14 +41,16 @@ Boat.create([
 	name: "Thedon",
 	location: "Florida",
 	containers: 5000,
-	user_id: 1
+	user_id: 1,
+	assignment_id: 1
 	
 },
 
 {   name: "Thekev",
 	location: "New York",
 	containers: 6000,
-	user_id: 2
+	user_id: 2,
+	assignment_id: 2
 		}
 
 ])

@@ -16,15 +16,21 @@
 </p>
 
 <p>
-  <strong>Photo:</strong>
   <%= image_tag @boat.photo.url %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Owner:</strong>
   <%= @boat.user.email %>
+</p>
+
+<p>
+  <strong>Job(s):</strong>
+    <% @boat.assignments.each do |assignment| %>
+        <p><%= assignment.job.name %></p>
+    <% end %>
 </p>
 
 
 <%= link_to 'Edit', edit_boat_path(@boat) %> |
-<%= link_to 'Delete', @boat, method: :delete, data: { confirm: 'Are you sure?' } %> <%= link_to 'Back', boats_path %>
+<%= link_to 'Delete', @boat, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', boats_path %>

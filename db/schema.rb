@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer "user_id"
+    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_boats_on_assignment_id"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
@@ -44,8 +46,10 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "destination"
     t.integer "cost"
     t.integer "user_id"
+    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_jobs_on_assignment_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
