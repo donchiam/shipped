@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "name"
     t.string "location"
     t.integer "containers"
+    t.string "job"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "origin"
     t.string "destination"
     t.integer "cost"
+    t.string "boat"
     t.integer "user_id"
     t.integer "assignment_id"
     t.datetime "created_at", null: false

@@ -24,14 +24,10 @@
         <td><%= job.origin %></td>
         <td><%= job.destination %></td>
         <td><%= job.cost %></td>
-        <% job.assignments.each do |assignment| %>
-        <% if assignment.boat.blank? %>
-            <td><%= collection_select(:job, :boat_id, Boat.all, :id, :name, { :prompt => 'Select a boat' }) %></td>
-            
+        <% if job.assignments.any? %>
+        <td><%= job.assignments.map{|a| a.boat.name}.join(', ') %></td>
         <% else %>
-            <td><%= assignment.boat.name %></td>  
-            <% end %>
-        
+          <td><%= collection_select(:job, :boat_id, Boat.all, :id, :name, { :prompt => 'Select a boat' }) %></td>  
         <% end %>
       </tr>
     <% end %>
