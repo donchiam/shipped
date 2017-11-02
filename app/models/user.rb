@@ -7,6 +7,4 @@ class User < ApplicationRecord
 	has_many :assignments
 	has_many :boats, dependent: :destroy	
 	has_many :jobs, dependent: :destroy
-
-
 end
