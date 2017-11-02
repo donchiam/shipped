@@ -84,5 +84,6 @@ class AssignmentsController < ApplicationController
     def assignment_params
       params.require(:assignment).permit(:job_id, :boat_id, :containers)
     end
-    end
+  end
 end
+
