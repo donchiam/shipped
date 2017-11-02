@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 	
 	has_many :assignments
-	has_many :boats, dependent: :destroy
-	has_many :containers
+	has_many :boats, dependent: :destroy	
 	has_many :jobs, dependent: :destroy
+
 
 end

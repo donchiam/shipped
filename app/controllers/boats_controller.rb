@@ -54,7 +54,7 @@ class BoatsController < ApplicationController
   # PATCH/PUT /boats/1
   def update
     @boat = Boat.find(params[:id])
-    if @boat.update_attributes()
+    if @boat.update(boat_params)
       redirect_to boats_path, notice: 'Boat was successfully updated.'
     else
       render :new
@@ -97,6 +97,6 @@ class BoatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boat_params
-      params.require(:boat).permit(:name, :location, :containers, :job, :image, :user_id)
+      params.require(:boat).permit(:name, :location, :containers, :job, :photo, :user_id)
     end
 end

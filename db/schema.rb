@@ -15,20 +15,26 @@ ActiveRecord::Schema.define(version: 20171101014322) do
   create_table "assignments", force: :cascade do |t|
     t.integer "job_id"
     t.integer "boat_id"
+    t.integer "containers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["job_id", "boat_id"], name: "index_assignments_on_job_id_and_boat_id", unique: true
+    t.index ["boat_id"], name: "index_assignments_on_boat_id"
+    t.index ["job_id"], name: "index_assignments_on_job_id"
   end
 
   create_table "boats", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.integer "containers"
-    t.string "job"
-    t.string "image"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
     t.integer "user_id"
+    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_boats_on_assignment_id"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
@@ -40,16 +46,15 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.string "destination"
     t.integer "cost"
     t.integer "user_id"
-    t.integer "boat_id_id"
+    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["boat_id_id"], name: "index_jobs_on_boat_id_id"
+    t.index ["assignment_id"], name: "index_jobs_on_assignment_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "boat"
-    t.string "job"
+    t.string "name"
     t.integer "containers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

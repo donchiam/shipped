@@ -5,7 +5,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Conversation.participating(current_user).order('updated_at DESC')
+    @assignments = Assignment.all
   end
 
   # GET /assignments/1
@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/new
   def new
-    @conversation ||= Assignment.create(job_id: job.current_user.id, receiver_id: @receiver.id)
+    @assignment = Assignment.new
   end
 
   # GET /assignments/1/edit
@@ -26,9 +26,10 @@ class AssignmentsController < ApplicationController
 
   # POST /assignments
   def create
-    @assignment = current_user.assignments.build(:Assignment.new(job_params)
-      if @job.save
-        redirect_to jobs_path
+  @assignment = Assignment.new(assignment_params)
+    @assignment.user = current_user
+      if @assignment.save
+        redirect_to assignments_path, notice: 'Assignment was successfully created.'
       else
         render :new
       end
@@ -84,14 +85,14 @@ class AssignmentsController < ApplicationController
       params.require(:assignment).permit(:job, :boat, :containers)
     end
 
-    def find_assignment
-      if params[:receiver_id]
-        @receiver = User.find_by(id: params[:boat_id])
-        redirect_to(root_path) and return unless @receiver
-        @conversation = Conversation.between(current_user.id, @receiver.id)[0]
-      else
-        @conversation = Conversation.find_by(id: params[:conversation_id])
-        redirect_to(root_path) and return unless @conversation && @conversation.participates(current_user)
-      end
-    end
+#    def find_assignment
+#      if params[:receiver_id]
+#        @receiver = User.find_by(id: params[:boat_id])
+#        redirect_to(root_path) and return unless @receiver
+#        @conversation = Conversation.between(current_user.id, @receiver.id)[0]
+#      else
+#        @conversation = Conversation.find_by(id: params[:conversation_id])
+#        redirect_to(root_path) and return unless @conversation && @conversation.participates(current_user)
+#      end
+#    end
 end

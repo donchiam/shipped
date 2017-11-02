@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-<%= form_for @boat do |boat| %>
+<%= form_for @boat, {multipart: true} do |boat| %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :boat_name %>
@@ -28,14 +28,16 @@
 
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :boat_image %>
+    <%= form.label :photo %>
+    <%= form.file_field :photo, id: :boat_photo %>
   </div>
-
 
 
   <div class="actions">
     <%= form.submit 'Add Boat' %>
   </div>
+
+
 <% end %>
 <% end %>
+

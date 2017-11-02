@@ -15,8 +15,8 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.job %></td>
-        <td><%= assignment.boat %></td>
+        <td><%= assignment.job.name %></td>
+        <td><%= assignment.boat.name %></td>
         <td><%= assignment.containers %></td>
         <td><%= link_to 'Show', assignment %></td>
         <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
