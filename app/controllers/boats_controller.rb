@@ -54,7 +54,7 @@ class BoatsController < ApplicationController
   # PATCH/PUT /boats/1
   def update
     @boat = Boat.find(params[:id])
-    if @boat.update_attributes()
+    if @boat.update(boat_params)
       redirect_to boats_path, notice: 'Boat was successfully updated.'
     else
       render :new
