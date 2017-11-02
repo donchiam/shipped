@@ -22,6 +22,7 @@ Job.create([
   cost: 5000,
   user_id: 1,
   assignment_id: 1
+  
 },
 
 { name: "engineer",

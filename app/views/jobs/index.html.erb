@@ -25,7 +25,7 @@
         <td><%= job.destination %></td>
         <td><%= job.cost %></td>
         <% job.assignments.each do |assignment| %>
-        <% if assignment.boat.blank? %>
+        <% if assignment.boat.nil? %>
             <td><%= collection_select(:job, :boat_id, Boat.all, :id, :name, { :prompt => 'Select a boat' }) %></td>
             
         <% else %>

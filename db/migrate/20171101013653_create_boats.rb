@@ -7,6 +7,7 @@ class CreateBoats < ActiveRecord::Migration[5.1]
       t.attachment :photo
       t.references :user, foreign_key: true
       t.references :assignment
+      t.string :job
 
 
       t.timestamps
