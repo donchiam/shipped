@@ -1,3 +1,5 @@
+<div id="boats_form">
+
 <%= form_with(model: boat, local: true) do |form| %>
   <% if boat.errors.any? %>
     <div id="error_explanation">
@@ -10,39 +12,69 @@
       </ul>
     </div>
   <% end %>
-<%= form_for @boat do |boat| %>
+<%= form_for @boat, {multipart: true} do |boat| %>
   <div class="field">
-    <%= form.label :name %>
+
+  <div class="field_label">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, id: :boat_photo %>
+  </div>
+
+  <div class="field">
+  <div class="field_label">
+  <%= form.label :name %>
+  </div>    
+  <div class="field_text">    
     <%= form.text_field :name, id: :boat_name %>
   </div>
+  </div>
+
+  <br>
+  <br>
 
   <div class="field">
+  <div class="field_label">
     <%= form.label :location %>
+  </div>    
+  <div class="field_text">    
     <%= form.text_field :location, id: :boat_location %>
   </div>
+  </div>
+
+  <br>
+  <br>
 
   <div class="field">
+  <div class="field_label">
     <%= form.label :containers %>
+  </div>    
+  <div class="field_text">    
     <%= form.number_field :containers, id: :boat_containers %>
   </div>
-
-  <div class="field">
-    <%= form.label :job %>
-    <%= form.text_field :job, id: :boat_job %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :boat_image %>
-  </div>
+  <br>
+  <br>  
+
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :boat_user_id %>
+  <div class="field_label">
+    <%= form.label :photo %>
+  </div>    
+  <div class="field_text">    
+    <%= form.file_field :photo, id: :boat_photo %>
   </div>
+  </div>
+
+  <br>
+  <br>  
 
   <div class="actions">
     <%= form.submit 'Add Boat' %>
   </div>
+
+
 <% end %>
 <% end %>
+
+</div>

@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @job.user %>
+  <strong>Posted by:</strong>
+  <%= @job.user.email %>
 </p>
 
 <p>
@@ -35,5 +35,22 @@
   <%= @job.cost %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<p>
+  <strong>Boat(s):</strong>
+    <% @job.assignments.each do |assignment| %>
+        <p><%= assignment.boat.name %></p>
+
+
+    <% end %>
+
+
+  <p>
+  <strong>Description:</strong>
+  <%= @job.description %>
+  </p>
+
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> | 
+<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', jobs_path %>
+
