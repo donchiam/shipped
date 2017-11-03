@@ -2,6 +2,7 @@
 
 <h1>Assignments</h1>
 
+<div id="assignments_table">
 <table>
   <thead>
     <tr>
@@ -17,7 +18,7 @@
       <tr>
         <td><%= assignment.job.name %></td>
         <td><%= assignment.boat.name %></td>
-        <td><%= assignment.containers %></td>
+        <td><%= assignment.job.containers %></td>
         <td><%= link_to 'Show', assignment %></td>
         <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
         <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,4 +29,5 @@
 
 <br>
 
-<%= link_to 'New Assignment', new_assignment_path %>
+<%= link_to 'New Assignment', new_assignment_path, class: "btn btn-primary btn-xs"  %>
+</div>

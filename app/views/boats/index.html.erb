@@ -2,6 +2,7 @@
 
 <h1>Boats</h1>
 
+<div id="boats_table">
 <table>
   <thead>
     <tr>
@@ -10,7 +11,7 @@
       <th>Containers</th>
       <th>Image</th>
       <th>Owner</th>
-      <th>Assigned Job</th>
+      <th>Assigned Job(s)</th>
     </tr>
   </thead>
 
@@ -19,9 +20,9 @@
       <tr>
         <td><%= link_to boat.name, boat_path(boat) %></td>
         <td><%= boat.location %></td>
-        <td><%= boat.containers %></td>
-        <td> <%= image_tag boat.photo.url(:medium) %></td>
+        <td align="center"><%= boat.containers %></td>
         <td><%= boat.user.email %></td>
+        <td> <%= image_tag boat.photo.url(:medium) %></td>
         <% boat.assignments.each do |assignment| %>
           <td><%= assignment.job.name %></td>
         <% end %>
@@ -32,7 +33,5 @@
 
 <br>
 
-<%= link_to 'New Boat', new_boat_path %>
-
-
-        
+<%= link_to 'New Boat', new_boat_path, class: "btn btn-primary btn-xs"  %>
+</div>

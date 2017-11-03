@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
-
+<h1>Jobs <%= link_to 'Create a New Job', new_job_path, class: "btn btn-primary btn-xs"  %></h1>
+<div id="jobs_table">
 <table>
   <thead>
     <tr>
@@ -11,7 +11,7 @@
       <th>Origin</th>
       <th>Destination</th>
       <th>Cost</th>
-      <th>Assigned Boat</th>
+      <th>Assigned Boat(s)</th>
     </tr>
   </thead>
 
@@ -20,13 +20,14 @@
       <tr>
         <td><%= link_to job.name, job_path(job) %></td>
         <td><%= job.user.email %></td>
-        <td><%= job.containers %></td>
-        <td><%= job.origin %></td>
-        <td><%= job.destination %></td>
-        <td><%= job.cost %></td>
+        <td align="center"><%= job.containers %></td>
+        <td align="center"><%= job.origin %></td>
+        <td align="center"><%= job.destination %></td>
+        <td align="right"><%= job.cost %></td>
         <% if job.assignments.any? %>
         <td><%= job.assignments.map{|a| a.boat.name}.join(', ') %></td>
         <% else %>
+
 
         
         <%= form_tag add_assignment_path(job), method: :post, remote: true do %>
@@ -42,5 +43,4 @@
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>
-
+</div>

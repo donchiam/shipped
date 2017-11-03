@@ -6,12 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-      function refresh() {
-          location.reload(false);
-          };
-      
-    </script>
+    
   </head>
 
   <body>
@@ -26,7 +21,7 @@
             <span class="icon-bar"></span>
           </button>
           <%= link_to root_path, class: "navbar-brand" do %>
-            Chat
+            LogisticsAll
           <% end %>
         </div>
 
@@ -54,8 +49,16 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
-	<div class="col-sm-10 col-sm-offset-2">
+    <div class="fluid-container" style="margin-top: 70px">
+      <div class="row">
+        <div class="col-sm-2" id="sidebar" style="position: fixed; top: 100px; left: 0;">
+          <p><%= link_to "Jobs", jobs_path %></p>
+          <p><%= link_to "Boats", boats_path %></p>
+          <p><%= link_to "Pairings", assignments_path %></p>
+          <p><%= link_to "Users", users_path %></p>
+          
+        </div>
+	<div class="col-sm-10 col-sm-offset-2" id="mainpage">
 
           <%= yield %>
 	</div>
