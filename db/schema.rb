@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20171101014322) do
     t.datetime "photo_updated_at"
     t.integer "user_id"
     t.integer "assignment_id"
-    t.string "job"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assignment_id"], name: "index_boats_on_assignment_id"

@@ -27,6 +27,13 @@ class JobsController < ApplicationController
     set_job
   end
 
+  def select_boat
+    set_job
+    @job.save
+    respond_to do |format|
+    format.js
+  end
+end
   # POST /jobs
   def create
     @job = Job.new(job_params)

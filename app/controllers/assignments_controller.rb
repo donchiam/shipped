@@ -62,17 +62,15 @@ class AssignmentsController < ApplicationController
       end
     end
   end
-
-
-  def add_assignment
-    @job = Job.find(params[:job_id])
-     @boat = Boat.find(params[:job][:boat_id])
-     @job.boats << @boat
-     respond_to :js
-  end
+def add_assignment
+  @job = Job.find(params[:job_id])
+  @boat = Boat.find(params[:job][:boat_id])
+  @job.boats << @boat
+  respond_to :js
+end
 
   # DELETE /assignments/1
-  # DELETE /assignments/1.json
+  # DELETE /assignments/1.jon
   def destroy
     @assignment.destroy
     respond_to do |format|
@@ -92,6 +90,7 @@ class AssignmentsController < ApplicationController
     def assignment_params
       params.require(:assignment).permit(:job_id, :boat_id, :containers)
     end
+  end
 
-end
+
 
