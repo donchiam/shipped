@@ -6,6 +6,7 @@ class BoatsController < ApplicationController
   # GET /boats.json
   def index
     @boats = Boat.all
+    @assignment = Assignment.new
   end
 
   # GET /boats/1
