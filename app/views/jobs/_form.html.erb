@@ -94,6 +94,18 @@
 <br>
 <br>
 
+  </div>
+<br>
+<br>
+
+ <div class="field">
+  <div class="field_label">
+    <%= form.label :description %>
+  </div>
+  <div class="field_text">
+    <%= form.text_field 'create_text', nil, :minlength => 50, :maxlength => 75, :size => 20 %>
+  </div>
+</div>
   <div class="actions">
     <%= form.submit %>
   </div>
