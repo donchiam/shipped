@@ -1,3 +1,4 @@
+<div id="jobs_form">
 <%= form_with(model: job, local: true) do |form| %>
   <% if job.errors.any? %>
     <div id="error_explanation">
@@ -12,36 +13,79 @@
   <% end %>
 
   <div class="field">
+  <div class="field_label">
     <%= form.label :name %>
+  </div>
+  <div class="field_text">
     <%= form.text_field :name, id: :job_name %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= text_field_tag 'create_text', nil, :maxlength => 50, :size => 20 %>
   </div>
 
+<br>
+<br>
+
   <div class="field">
+  <div class="field_label">
+    <%= form.label :description %>
+  </div>
+  <div class="field_text">
+    <%= form.text_field :description, id: :job_description%>
+  </div>
+  </div>
+
+<br>
+<br>
+
+  <div class="field">
+  <div class="field_label">
     <%= form.label :containers %>
+  </div>
+  <div class="field_text">
     <%= form.number_field :containers, id: :job_containers %>
   </div>
+  </div>
+
+<br>
+<br>
 
   <div class="field">
+  <div class="field_label">
     <%= form.label :origin %>
+  </div>
+  <div class="field_text">
     <%= form.select :origin, [['Florida'], ['New York'], ['California'], ['Seattle'], ['Canada']] %>
   </div>
+  </div>
+
+<br>
+<br>
 
   <div class="field">
+  <div class="field_label">
     <%= form.label :destination %>
+  </div>
+  <div class="field_text">
     <%= form.select :destination, [['Spain'], ['Ireland'], ['Portugal'], ['Engald'], ['Italy']] %>
   </div>
+  </div>
+
+<br>
+<br>
 
   <div class="field">
+  <div class="field_label">
     <%= form.label :cost %>
+  </div>
+  <div class="field_text">
     <%= form.number_field :cost, id: :job_cost %>
   </div>
+  </div>
+
+<br>
+<br>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
