@@ -65,7 +65,7 @@ class AssignmentsController < ApplicationController
 
 
   def add_assignment
-     @job = Job.find(params[:job_id])
+    @job = Job.find(params[:job_id])
      @boat = Boat.find(params[:job][:boat_id])
      @job.boats << @boat
      respond_to :js

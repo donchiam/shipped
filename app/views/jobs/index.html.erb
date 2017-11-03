@@ -29,7 +29,7 @@
         <% else %>
           <%= form_tag add_assignment_path(job), method: :post, remote: true do %>
           <td class ="select_boat"><%= collection_select(:job, :boat_id, Boat.all, :id, :name, { :prompt => 'Select a boat' }) %></td> 
-           <td><%= submit_tag 'Save', class: "select_boat" %></td> 
+           <td><%= submit_tag 'Save', class: "select_boat", :onclick => "return refresh();" %></td> 
         <% end %>
         <% end %>
       </tr>
