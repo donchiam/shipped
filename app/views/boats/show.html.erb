@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @boat.photo.url %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @boat.name %>
 </p>
@@ -13,10 +17,6 @@
 <p>
   <strong>Containers:</strong>
   <%= @boat.containers %>
-</p>
-
-<p>
-  <%= image_tag @boat.photo.url %>
 </p>
 
 <p>

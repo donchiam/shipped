@@ -39,8 +39,17 @@
   <strong>Boat(s):</strong>
     <% @job.assignments.each do |assignment| %>
         <p><%= assignment.boat.name %></p>
+
+
     <% end %>
-</p>
+
+
+  <p>
+  <strong>Description:</strong>
+  <%= @job.description %>
+  </p>
+
+
 
 <%= link_to 'Edit', edit_job_path(@job) %> | 
 <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', jobs_path %>

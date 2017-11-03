@@ -91,6 +91,6 @@ end
       params.require(:assignment).permit(:job_id, :boat_id, :containers)
     end
   end
-end
+
 
 

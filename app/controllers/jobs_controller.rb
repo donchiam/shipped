@@ -62,7 +62,7 @@ end
   # PATCH/PUT /jobs/1
   def update
     @job = Job.find(params[:id])
-    if @job.update_attributes()
+    if @job.update(job_params)
       redirect_to jobs_path, notice: 'Job was successfully updated.'
     else
       render :new

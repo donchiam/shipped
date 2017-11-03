@@ -1,0 +1,6 @@
+document.querySelector(".select_boat").addEventListener("click", function() {
+    document.querySelector(".boat_class[reference=boat_select]"]).text = <%= @jobs.assignments.map{|a| a.boat.name}.join(', ') %>;
+}
+
+
+
