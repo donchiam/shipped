@@ -68,6 +68,7 @@ def add_assignment
   @job.boats << @boat
   respond_to :js
 end
+
   # DELETE /assignments/1
   # DELETE /assignments/1.jon
   def destroy
