@@ -14,7 +14,29 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "assignments";
+@import "boats";
+@import "jobs";
+@import "users";
 
 body {
-	margin-top: 10%;
+	margin-top: 0%;
+
 }
+
+#sidebar {
+	position: fixed;
+	font-size: 24px;
+	padding-left: 4%;
+}
+
+#mainpage {
+
+	border-left: 2px solid blue;
+	padding-left: 5%;
+}
+
+.btn-success, .btn-danger, .btn-primary {
+	font-size: 14px;
+}
+

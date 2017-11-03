@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :job %>
-    <%= form.text_field :job, id: :assignment_job %>
+    <%= form.select :job_id, options_for_select(Job.pluck(:name,:id)) %>
   </div>
 
   <div class="field">
     <%= form.label :boat %>
-    <%= form.text_field :boat, id: :assignment_boat %>
+    <%= form.select :boat_id, options_for_select(Boat.pluck(:name,:id)) %>
   </div>
 
   <div class="field">
