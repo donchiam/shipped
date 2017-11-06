@@ -23,15 +23,14 @@
 
 <br>
 <br>
-
-  <div class="field">
+<div class="field">
   <div class="field_label">
     <%= form.label :description %>
   </div>
   <div class="field_text">
-    <%= form.text_field :description, id: :job_description%>
+    <%= form.text_field :description, minimum: 50, size: 20 %>
   </div>
-  </div>
+</div>
 
 <br>
 <br>
@@ -84,22 +83,8 @@
 <br>
 <br>
 
- <div class="field">
-  <div class="field_label">
-    <%= form.label :description %>
-  </div>
-  <div class="field_text">
-    <%= form.text_field :description, minimum: 50, size: 20 %>
-  </div>
-</div>
-
-<br>
-<br>
-
   <div class="actions">
     <%= form.submit %>
   </div>
-
- 
 <% end %>
 </div>
