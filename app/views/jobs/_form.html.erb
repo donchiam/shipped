@@ -89,7 +89,7 @@
     <%= form.label :description %>
   </div>
   <div class="field_text">
-    <%= form.text_field 'create_text', nil, :minlength => 50, :maxlength => 75, :size => 20 %>
+    <%= form.text_field :description, minimum: 50, size: 20 %>
   </div>
 </div>
 
