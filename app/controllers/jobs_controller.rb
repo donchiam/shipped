@@ -14,6 +14,7 @@ class JobsController < ApplicationController
   # GET /jobs/1.json
   def show
     @job = Job.find(params[:id])
+    @boats = Boat.all
 
   end
 
@@ -25,6 +26,7 @@ class JobsController < ApplicationController
   # GET /jobs/1/edit
   def edit
     set_job
+    @assignment = Assignment.find(params[:id])
   end
 
   def select_boat
