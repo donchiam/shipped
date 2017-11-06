@@ -44,7 +44,6 @@ Boat.create([
 	containers: 5000,
 	user_id: 1,
 	assignment_id: 1
-	photo: open('https://ichef.bbci.co.uk/news/624/media/images/80085000/jpg/_80085310_maersk_triple_e_portoffelixstowe.jpg')
 	
 },
 
@@ -53,7 +52,6 @@ Boat.create([
 	containers: 6000,
 	user_id: 2,
 	assignment_id: 2
-	photo: open('http://www.telegraph.co.uk/content/dam/Travel/2016/December/container-ship.jpg?imwidth=480')
 		}
 
 ])

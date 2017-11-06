@@ -2,36 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-#jobs_table th, td {
-	padding-right: 10px;
-	margin-left: 10px;
-	column-width: 500px;
-	padding-bottom: 30px;
-	padding-left: 10px;
-	border-right: 1px solid blue;
-}
-
-#jobs_table tr > th {
-	text-align: center;
-	
-}
-
-#jobs_form {
-
-}
-
-.field {
-
-}
-
-.field_label {
-	width: 100px;
-	float: left;
-	margin-right: 10px;
-}
-
-.field_text {
-	width: 150px;
-	float: left;
-}

@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
+<div class="panel-heading">
+<h1 class="panel-title">Assignments</h1>
+</div>
+<div class="panel panel-default">
+<div class="panel-body">
+  <div class="table"> 
+    <table>
+      <thead>
+        <tr>
+          <th>Job</th>
+          <th>Boat</th>
+          <th>Containers</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Assignments</h1>
-
-<div id="assignments_table">
-<table>
-  <thead>
-    <tr>
-      <th>Job</th>
-      <th>Boat</th>
-      <th>Containers</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @assignments.each do |assignment| %>
-      <tr>
-        <td><%= assignment.job.name %></td>
-        <td><%= assignment.boat.name %></td>
-        <td><%= assignment.job.containers %></td>
-        <td><%= link_to 'Show', assignment %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Assignment', new_assignment_path, class: "btn btn-primary btn-xs"  %>
+      <tbody>
+        <% @assignments.each do |assignment| %>
+          <tr>
+            <td><%= assignment.job.name %></td>
+            <td><%= assignment.boat.name %></td>
+            <td><%= assignment.job.containers %></td>
+            <td><%= link_to 'Show', assignment, class: "btn btn-primary btn-xs" %></td>
+            <td><%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-success btn-xs" %></td>
+            <td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+ </div>
+</div>
 </div>

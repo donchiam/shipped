@@ -1,42 +1,51 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Jobs <%= link_to 'Create a New Job', new_job_path, class: "btn btn-primary btn-xs"  %></h1>
-<div id="jobs_table">
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Posted by</th>
-      <th>Containers</th>
-      <th>Origin</th>
-      <th>Destination</th>
-      <th>Cost</th>
-      <th>Assigned Boat(s)</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= link_to job.name, job_path(job) %></td>
-        <td><%= job.user.email %></td>
-        <td align="center"><%= job.containers %></td>
-        <td align="center"><%= job.origin %></td>
-        <td align="center"><%= job.destination %></td>
-        <td align="right"><%= job.cost %></td>
-        <% if job.assignments.any? %>
-        <td><%= job.assignments.map{|a| a.boat.name}.join(', ') %></td>
-        <% else %>
-        <%= form_tag add_assignment_path(job), method: :post, remote: true do %>
-         <td class ="boat_class" reference="boat_select"><%= collection_select(:job, :boat_id, Boat.all, :id, :name, { :prompt => 'Select a boat' }) %></td>
-          <td><%= submit_tag 'Save', class: "select_boat" %></td>
+<div class="panel-heading">
+  <div class="page_title">
+    <h1 class="panel-title">Jobs</h1>
+  </div>
+  <div class="action_button">
+     <%= link_to 'Create a New Job', new_job_path, class: "btn btn-success btn-xs"  %>
+  </div>
+</div>
+<div class="panel panel-default">
+<div class="panel-body">
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Posted by</th>
+          <th>Containers</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Cost</th>
+          <th>Assigned Boat(s)</th>
+          <th></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @jobs.each do |job| %>
+          <tr>
+            <td><%= link_to job.name, job_path(job), class: "btn btn-primary btn-xs" %></td>
+            <td><%= job.user.email %></td>
+            <td align="right"><%= number_with_delimiter(job.containers) %></td>
+            <td><%= job.origin %></td>
+            <td><%= job.destination %></td>
+            <td class="cost" align="right"><%= number_to_currency(job.cost, :unit => "$") %></td>
+            <% if job.assignments.any? %>
+            <div id="job_boat">
+            <td><%= job.assignments.map{|a| a.boat.name}.join(', ') %></td>
+            <% else %>
+            <%= form_tag add_assignment_path(job), id: "form1", method: :post, remote: true do %>
+             <td class ="boat_class" reference="boat_select"><%= collection_select(:job, :boat_id, Boat.all, :id, :name, { :prompt => 'Select a boat'}, {onchange: "review();" } ) %><%= submit_tag 'Save', class: 'btn' %></td>
+            <% end %>
+            <% end %>
+          </div>
+          </tr>
         <% end %>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>
