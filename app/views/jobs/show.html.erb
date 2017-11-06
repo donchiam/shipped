@@ -1,13 +1,18 @@
+<div class="detail_page">
 <p id="notice"><%= notice %></p>
-
+<div class="panel-heading">
+  <div class="page_title">
+    <h1 class="panel-title">Job Details</h1>
+  </div>
+  <div class="action_button">
+    <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-success btn-xs"  %> | <%= link_to 'Delete', @job, class: "btn btn-danger btn-xs",  method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
+<div class="panel panel-default">
+<div class="panel-body">
 <p>
-  <strong>Name:</strong>
+  <strong>Job Name:</strong>
   <%= @job.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
 </p>
 
 <p>
@@ -17,7 +22,7 @@
 
 <p>
   <strong>Containers:</strong>
-  <%= @job.containers %>
+  <%= number_with_delimiter(@job.containers) %>
 </p>
 
 <p>
@@ -32,11 +37,11 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @job.cost %>
+  <%= number_to_currency(@job.cost, :unit => "$")  %>
 </p>
 
 <p>
-  <strong>Boat(s):</strong>
+  <strong>Assigned Boat(s):</strong>
     <% @job.assignments.each do |assignment| %>
         <p><%= assignment.boat.name %></p>
 
@@ -51,6 +56,8 @@
 
 
 
-<%= link_to 'Edit', edit_job_path(@job) %> | 
-<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', jobs_path %>
+<%= link_to 'Back', jobs_path, class: "btn btn-default btn-xs" %>
 
+</div>
+</div>
+</div>

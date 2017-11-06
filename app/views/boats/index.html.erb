@@ -1,37 +1,42 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Boats</h1>
-
-<div id="boats_table">
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Containers</th>
-      <th>Image</th>
-      <th>Owner</th>
-      <th>Assigned Job(s)</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @boats.each do |boat| %>
-      <tr>
-        <td><%= link_to boat.name, boat_path(boat) %></td>
-        <td><%= boat.location %></td>
-        <td align="center"><%= boat.containers %></td>
-        <td><%= boat.user.email %></td>
-        <td> <%= image_tag boat.photo.url(:medium) %></td>
-        <% boat.assignments.each do |assignment| %>
-          <td><%= assignment.job.name %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Boat', new_boat_path, class: "btn btn-primary btn-xs"  %>
+<div class="panel-heading">
+<div class="page_title">
+  <h1 class="panel-title">Boats</h1>
 </div>
+<div class="action_button">
+  <%= link_to 'Create a New Boat', new_boat_path, class: "btn btn-success btn-xs"  %>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-body">
+  <div class="table">  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Containers</th>
+          <th>Owner</th>
+          <th>Image</th>
+          <th>Assigned Job(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @boats.each do |boat| %>
+          <tr>
+            <td><%= link_to boat.name, boat_path(boat), class: "btn btn-info btn-xs" %></td>
+            <td><%= boat.location %></td>
+            <td align="center"><%= number_with_delimiter(boat.containers) %></td>
+            <td><%= boat.user.email %></td>
+            <td> <%= image_tag boat.photo.url(:thumb) %></td>
+            <% if boat.assignments.any? %>
+            <td><%= boat.assignments.map{|a| a.job.name}.join(', ') %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+

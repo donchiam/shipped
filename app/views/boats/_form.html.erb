@@ -12,6 +12,7 @@
       </ul>
     </div>
   <% end %>
+
 <%= form_for @boat, {multipart: true} do |boat| %>
   <div class="field">
 
@@ -23,6 +24,11 @@
   <div class="field">
   <div class="field_label">
   <%= form.label :name %>
+
+
+  <div class="field">
+  <div class="field_label">
+    <%= form.label :name %>
   </div>    
   <div class="field_text">    
     <%= form.text_field :name, id: :boat_name %>
@@ -59,22 +65,21 @@
 
   <div class="field">
   <div class="field_label">
+    <%= form_for @boat, {multipart: true} do |boat| %>
     <%= form.label :photo %>
-  </div>    
-  <div class="field_text">    
     <%= form.file_field :photo, id: :boat_photo %>
   </div>
-  </div>
+  <% end %>
 
   <br>
   <br>  
-
+  <br>
+  <br>
   <div class="actions">
     <%= form.submit 'Add Boat' %>
   </div>
 
 
-<% end %>
 <% end %>
 
 </div>
