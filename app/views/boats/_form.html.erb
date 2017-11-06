@@ -13,6 +13,19 @@
     </div>
   <% end %>
 
+<%= form_for @boat, {multipart: true} do |boat| %>
+  <div class="field">
+
+  <div class="field_label">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, id: :boat_photo %>
+  </div>
+
+  <div class="field">
+  <div class="field_label">
+  <%= form.label :name %>
+
+
   <div class="field">
   <div class="field_label">
     <%= form.label :name %>
@@ -59,6 +72,7 @@
   <% end %>
 
   <br>
+  <br>  
   <br>
   <br>
   <div class="actions">
